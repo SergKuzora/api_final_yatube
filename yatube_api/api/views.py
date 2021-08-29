@@ -15,7 +15,6 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     permission_classes = (AuthorOrReadOnly,)
     pagination_class = LimitOffsetPagination
-    
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
